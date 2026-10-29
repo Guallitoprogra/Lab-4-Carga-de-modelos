@@ -9,10 +9,8 @@ try {
         Expand-Archive 'dependencias/raylib.zip' 'dependencias' -Force
     }
 
-    # Se necesita Zig instalado para compilar el programa en C.
-    zig cc src/main.c -o laboratorio.exe -I "$raylib/include" "$raylib/lib/libraylib.a" -target x86_64-windows-gnu -lopengl32 -lgdi32 -lwinmm -std=c99 -Wall -Wextra
-    if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el laboratorio.' }
-    & './laboratorio.exe'
+    # Compila y ejecuta el codigo Zig (requiere Zig 0.16).
+    zig build run
     if ($LASTEXITCODE -ne 0) { throw 'No se pudo ejecutar el laboratorio.' }
 }
 finally {

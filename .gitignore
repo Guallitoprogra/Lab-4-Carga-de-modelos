@@ -2,3 +2,6 @@ dependencias/
 laboratorio.exe
 *.obj.o
 *.pdb
+.zig-cache/
+zig-out/
+*.blend1
